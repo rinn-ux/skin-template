@@ -1,0 +1,15 @@
+{
+  "name": "ao3-skins",
+  "version": "1.0.0",
+  "description": "dev repo for ao3 skins",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass src:../Ao3-dev/stylesheets/skins",
+    "watch": "sass --watch src:../Ao3-dev/stylesheets/skins"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.80.3"
+  }
+}

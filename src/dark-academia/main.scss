@@ -41,11 +41,13 @@ body {
       flex-direction: row;
       .icon {
         order: 1;
-        height: 100%;
-        width: auto;
+        aspect-ratio: 1;
         a {
+          max-width: 100%;
+          max-height: 100%;
           img {
-            aspect-ratio: 1;
+            width: 100%;
+            height: 100%;
           }
         }
       }
@@ -70,8 +72,18 @@ a.tag {
       color: $text !important;
       font-size: 0.75rem;
     }
-    &.dropdown:nth-child(1) {
-      grid-column: 1 / span 2;
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: none !important;
     }
+    &.dropdown {
+      &:nth-child(1) {
+        grid-column: 1 / span 2;
+        display: inline-block;
+      }
+    }
+  }
+  .dropdown .menu {
+    left: 0;
   }
 }
