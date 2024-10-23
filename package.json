@@ -4,12 +4,14 @@
   "description": "dev repo for ao3 skins",
   "main": "index.js",
   "scripts": {
-    "build": "sass src:../Ao3-dev/stylesheets/skins",
-    "watch": "sass --watch src:../Ao3-dev/stylesheets/skins"
+    "build": "sass src:../Ao3-dev/stylesheets/skins/user",
+    "compile": "sass src:build --no-source-map",
+    "watch": "sass --watch src:../Ao3-dev/stylesheets/skins/user"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@catppuccin/palette": "^1.4.0",
     "sass": "^1.80.3"
   }
 }
