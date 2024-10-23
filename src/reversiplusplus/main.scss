@@ -282,7 +282,7 @@ div.preface .byline a:visited:hover,
 .blurb h4 a:link:hover,
 .blurb h4 a:visited:hover,
 .listbox .heading a:visited:hover {
-  color: $lavender;
+  color: color.scale($lavender, $lightness: 15%);
 }
 
 /* darker grey for visited links */
@@ -291,7 +291,7 @@ div.preface .byline a:visited,
 span.series .divider,
 .blurb h4 a:visited,
 .listbox .heading a:visited {
-  color: $mauve;
+  color: $lavender;
 }
 
 /* icons are sharp no more */
@@ -369,7 +369,7 @@ hr,
 .userstuff hr {
   border: 0;
   border-bottom: 2px solid;
-  color: #eee;
+  color: $text;
   margin: 1.5em auto;
 }
 
@@ -378,13 +378,23 @@ fieldset.listbox {
 	
 }*/
 
+#inner.wrapper {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  #main.works-show.region {
+    padding-top: 1em;
+    background: $mantle;
+  }
+}
+
 /* rounds and pretties text boxes */
 input,
 textarea {
   background: $mantle;
-  border-color: #78777d;
+  border-color: $surface1;
   border-radius: 0.25em;
-  color: #eee;
+  color: $text;
 }
 
 /* blue border now appears when you're focused a text box */
@@ -393,14 +403,14 @@ textarea:focus,
 form blockquote.userstuff,
 form.search input:focus[type="text"] {
   background: $mantle;
-  border-color: #6ab5ff;
+  border-color: $blue;
 }
 
 /* white border on text box hover */
 input:hover,
 form.search input:hover[type="text"] {
   background: $mantle;
-  border-color: #fff;
+  border-color: $text;
 }
 
 th,
@@ -427,7 +437,7 @@ span.unread,
 .replied,
 .required,
 .blurb h4 img {
-  color: $rosewater;
+  color: $lavender;
 }
 
 /* some labels are misbehaving (namely edit skin: parent skins) so trying this */
@@ -457,8 +467,8 @@ div.dynamic,
 #ui-datepicker-div,
 .ui-datepicker table {
   background: $base;
-  border-color: #78777d;
-  color: #eee;
+  border-color: $surface2;
+  color: $text;
 }
 
 .picture .header {
@@ -512,7 +522,7 @@ input[type="submit"],
 .flash.notice .action {
   background: $surface0;
   border-color: transparent; /* nix lines while keeping white space */
-  color: #eee;
+  color: $text;
 }
 
 /* active button behaviours (mostly) */
@@ -537,7 +547,7 @@ span.claimed,
 .unwrangled,
 .unreviewed,
 .ui-sortable li:hover {
-  background: #0b0b0b;
+  background: $crust;
   border-color: transparent;
   color: $text;
 }
@@ -561,7 +571,7 @@ input.button:hover,
 .flash.notice .action:visited:hover,
 .work.index.group .actions li a:hover,
 .work.index.group .actions li a:visited:hover {
-  background: #4e4e5e;
+  background: $surface1;
   border-color: transparent;
   color: $text;
 }
@@ -572,7 +582,7 @@ input.button:hover,
 .action a:visited,
 .blurb h4 a:visited,
 .listbox .heading a:visited {
-  color: $mauve;
+  color: $surface2;
 }
 
 dl.meta {
@@ -600,10 +610,9 @@ dd.actions {
 /* dark header bg at the top */
 #header {
   background: $mantle !important;
+  margin: 0;
   color: $text;
   font-size: 0.875em;
-  margin: 0 0 1em 0;
-  padding: 0;
   position: relative;
 }
 
@@ -633,7 +642,7 @@ dd.actions {
 #header .actions a:focus,
 #header .dropdown:hover a,
 #header .open a {
-  background: #ddd;
+  background: $subtext1;
 }
 
 /* header nav buttons as blue: fandoms/browse/search/about */
@@ -641,7 +650,7 @@ dd.actions {
   .actions a {
     background: transparent;
     border-color: transparent;
-    color: $surface0;
+    color: $text;
   }
 
   #greeting .actions a {
@@ -720,7 +729,7 @@ dd.actions {
 }
 
 #header .primary {
-  background: map.get($frappe, "yellow");
+  background: $surface0;
   color: $base;
   padding: 0;
   width: 100%;
@@ -746,6 +755,7 @@ dd.actions {
 /* stay square, nav buttons */
 #header ul.primary {
   border-radius: 0 !important;
+  width: 100%;
 }
 
 #header .menu li {
@@ -825,6 +835,10 @@ fieldset.listbox .heading,
   border-radius: 1em;
 }
 
+#header .search {
+  display: none !important;
+}
+
 /* gives user greeting some breathing room */
 #greeting {
   padding: 0.5em 0;
@@ -902,7 +916,7 @@ fieldset.listbox .heading,
 }
 
 .splash .favorite li a:visited {
-  color: $mauve;
+  color: $lavender;
 }
 
 .splash .favorite li:nth-of-type(odd) a:focus,
@@ -957,6 +971,17 @@ fieldset.listbox .heading,
    note: this change likely can (and will) royally screw up writers' work skins
 */
 
+#workskin {
+  padding: 0;
+  margin: 0;
+}
+
+.work.meta.group {
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
 /* work serif fonts */
 #chapters .userstuff a,
 #chapters .userstuff p,
@@ -1007,11 +1032,12 @@ fieldset.listbox .heading,
 }
 
 /* in work, boxes summary + author notes */
-.notes.module blockquote.userstuff,
-.summary.module blockquote.userstuff {
-  background: $mantle;
+.notes.module,
+.summary.module {
+  background: $base;
   border-radius: 0.5em;
-  padding: 1em;
+  font-size: 0.65rem;
+  margin-top: 1rem !important;
 }
 
 .userstuff h3 {
@@ -1019,21 +1045,24 @@ fieldset.listbox .heading,
 }
 
 div.preface {
-  margin: 1.5em 4em 5em 4em;
-  padding: 0.65em 0.65em 0 0.65em;
+  border-radius: 0.25rem;
+  background: transparent;
+  margin: 0;
+  margin-block: 1rem;
+  padding: 0.75rem;
   float: none;
 }
 
 div.preface .module {
   float: none;
   margin: 0;
-  padding: 0 0 0.65em;
+  padding: 1rem;
   width: auto;
 }
 
 /* nix border at the top of work page */
 .chapter .preface {
-  border-top: 1px solid;
+  border: none;
 }
 
 .preface h3 {
@@ -1593,7 +1622,7 @@ form dd.required,
 }
 
 .announcement .userstuff a:visited {
-  color: $mauve;
+  color: $lavender;
 }
 
 .announcement .userstuff a:hover,
@@ -1976,12 +2005,12 @@ dt.search dd {
 
 /* and replaced! hi, meet right unicode arrow */
 .filters .expander::before {
-  content: "\23F5\00A0";
+  content: #{'"'} + string.unquote("\\") + 23F5 + string.unquote("\\") + 00A0 + #{'"'};
 }
 
 /* and left unicode arrow */
 .filters .expanded .expander::before {
-  content: "\23F7\00A0";
+  content: #{'"'} + string.unquote("\\") + 23F7 + string.unquote("\\") + 00A0 + #{'"'};
 }
 
 /* parent expander buttons are too far in, so they're scooching over a skosh */
@@ -2238,3 +2267,149 @@ img[src$="/images/lockblue.png"] {
 #header .logo {
   content: url("/images/logo.png");
 }
+
+/*
+===========
+Stats Icons
+===========
+*/
+dl.stats dt {
+  display: none;
+}
+
+.skins .header dl.stats dt {
+  display: inline-block;
+}
+
+/*for the series in the bookmarks page*/
+dl.stats dd:nth-of-type(1)::before {
+  /*words*/
+  background: url(https://64.media.tumblr.com/fff96d500a04ddf12517a48d83b228d2/b2e751421a20aa0c-a7/s100x200/c848a67de8f463ccdafa5b60948c61a172d5fe24.png);
+}
+
+dl.stats dd:nth-of-type(2)::before {
+  /*works*/
+  background: url(https://64.media.tumblr.com/f835b437a474b4b672a8d4ebe61402b8/8979adde76f2ff05-fb/s100x200/8f86556b6896e96427f5a4a54f0de7be38ddba75.png);
+}
+
+dl.stats dd.language::before {
+  display: none !important;
+}
+
+/*work blurb*/
+dl.stats dd.kudos::before {
+  /*kudos*/
+  background: url(https://64.media.tumblr.com/23a3c6f134a96386f50fb8982a353590/8b704f26c7323545-01/s100x200/31e25f0be03646918168c4d49bd2ee9733b2cd59.png);
+}
+
+dl.stats dd.words::before {
+  /*words*/
+  background: url(https://64.media.tumblr.com/fff96d500a04ddf12517a48d83b228d2/b2e751421a20aa0c-a7/s100x200/c848a67de8f463ccdafa5b60948c61a172d5fe24.png);
+}
+
+dl.stats dd.chapters::before {
+  /*chapters*/
+  background: url(https://64.media.tumblr.com/a8ca48310f24581ae539336583690b26/b2e751421a20aa0c-5c/s100x200/a51b914598b64c3ddf6f705b278f11a68301d443.png);
+}
+
+dl.stats dd.comments::before {
+  /*comments*/
+  background: url(https://64.media.tumblr.com/7172c0bbe03a0eef7b236014dc78c905/8b704f26c7323545-78/s250x400/f37ba1ff69b5ef2ad7e5fe66b61fd748badc00d1.png);
+}
+
+dl.stats dd.bookmarks::before,
+dl.stats dd a[href$="bookmarks"]::before {
+  /*bookmarks*/
+  background: url(https://64.media.tumblr.com/9b95d189a57699762d2262536e922ece/b2e751421a20aa0c-2a/s100x200/1aabb2ad7b90746f0469aefaa39af5b83728f8b9.png);
+}
+
+dl.stats dd.hits::before {
+  /*hits*/
+  background: url(https://64.media.tumblr.com/b2b8862a356132ac1aa41e9e9f0ddd1d/b2e751421a20aa0c-9e/s100x200/dcd2bcb1adbbb8f9e1844b61aee3dd3a653531e3.png);
+}
+
+dl.stats dd.collections::before {
+  /*collections*/
+  background: url(https://64.media.tumblr.com/ae825c2ad8071426c298c5b52970e294/b2e751421a20aa0c-18/s100x200/d1eb5dd259e2db588cda2100057c2c8fd9efaaf0.png);
+}
+
+dl.work dl.stats dd.published::before {
+  /*date published*/
+  background: url(https://64.media.tumblr.com/7e13419071a7eeb35f48a76c7aa0ba36/b2e751421a20aa0c-5d/s250x400/7f351f60793ad683e4a9dc4de55e4ee4d625f9d2.png);
+}
+
+dl.work dl.stats dd.status::before {
+  /*completion status*/
+  background: url(https://64.media.tumblr.com/0ef9349a36cf808783e9488a97b64678/b2e751421a20aa0c-10/s250x400/8df1d3da298f875381822968f8e71ed4d7bcae31.png);
+}
+
+ul.statistics dl.stats dd.subscriptions::before {
+  /*subscriptions (in the stat page)*/
+  background: url(https://64.media.tumblr.com/64db76a65209eff79515dfc23842eb54/fd0b10e0262ddb71-14/s250x400/921de73c3d5bb819f4e3c58c7c45bd4c6edfe55f.png);
+}
+
+/*adjustments for the stat page*/
+dl.stats dd.published::before,
+dl.stats dd.status::before {
+  width: 0px;
+  margin-right: 0px;
+}
+
+/*for the collections*/
+li.collection dl.stats dd a[href$="collections"]::before {
+  /*collections and sub collections*/
+  background: url(https://64.media.tumblr.com/ae825c2ad8071426c298c5b52970e294/b2e751421a20aa0c-18/s100x200/d1eb5dd259e2db588cda2100057c2c8fd9efaaf0.png);
+}
+
+li.collection dl.stats dd a[href$="works"]::before {
+  /*works*/
+  background: url(https://64.media.tumblr.com/f835b437a474b4b672a8d4ebe61402b8/8979adde76f2ff05-fb/s100x200/8f86556b6896e96427f5a4a54f0de7be38ddba75.png);
+}
+
+li.collection dl.stats dd a[href$="bookmarks"]::before {
+  /*bookmarks*/
+  background: url(https://64.media.tumblr.com/9b95d189a57699762d2262536e922ece/b2e751421a20aa0c-2a/s100x200/1aabb2ad7b90746f0469aefaa39af5b83728f8b9.png);
+}
+
+li.collection dl.stats dd a[href$="fandoms"]::before {
+  /*fandoms*/
+  background: url(https://64.media.tumblr.com/0a2f3d28fb850907a859726916e04e6f/8979adde76f2ff05-48/s250x400/926b1499363f66438d02fdc8bbea5ce610a75395.png);
+}
+
+/*
+this creates the space before the stats for the icon. 
+Yes this is the worst css code ever written I blame Ao3's frontend inconsistencies.
+but I'm also sorry for putting this out in the world. I have no excuses.
+*/
+ul.statistics dl.stats dd::before,
+li.work dl.stats dd::before,
+li.bookmark dl.stats dd::before,
+dl.work dl.stats dd::before,
+.collection dl.stats dd a[href$="collections"]::before,
+li.collection dl.stats dd a[href$="works"]::before,
+li.collection dl.stats dd a[href$="bookmarks"]::before,
+li.collection dl.stats dd a[href$="fandoms"]::before,
+li.series
+  dl.stats
+  dd:not(.language):not(.words):not(.chapters):not(.collections):not(
+    .comments
+  ):not(.kudos):not(.bookmarks):not(.hits):not(.published):not(
+    .subscriptions
+  ):nth-of-type(1)::before,
+li:not(.collection)
+  dl.stats
+  dd:not(.language):not(.words):not(.chapters):not(.collections):not(
+    .comments
+  ):not(.kudos):not(.bookmarks):not(.hits):not(.published):not(
+    .subscriptions
+  ):nth-of-type(2)::before,
+dl.stats dd:not(.bookmarks) a[href$="bookmarks"]::before {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  content: " ";
+  background-size: 14px 14px !important;
+  margin-right: 5px;
+}
+
+/*End of Stats Icons*/
