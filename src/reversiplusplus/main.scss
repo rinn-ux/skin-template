@@ -382,7 +382,8 @@ fieldset.listbox {
   display: flex;
   margin: 0;
   padding: 0;
-  #main.works-show.region {
+  #main.works-show.region,
+  #main.chapters-show.region {
     padding-top: 1em;
     background: $mantle;
   }
@@ -1712,6 +1713,10 @@ form dd.required,
   margin: 1.75em;
   padding-block: 0.25em;
   padding-inline: 1rem;
+}
+
+#main.dashboard {
+  margin: 1rem;
 }
 
 /* ---+ 13. STATS PAGE +--- */
