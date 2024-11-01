@@ -1,0 +1,158 @@
+* {
+  font-size: 12px;
+}
+
+#chapters .userstuff p {
+  margin-left: 1em;
+  margin-right: 1em;
+  overflow-wrap: break-word;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#header nav[aria-label="Site"] {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#header ul.primary {
+  display: flex;
+  justify-content: center;
+  padding-block: 0.5rem;
+}
+
+#inner.wrapper {
+  flex-direction: column;
+  #main.works-show.region,
+  #main.chapters-show.region {
+    padding-inline: 1rem;
+  }
+}
+
+#workskin {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.notes.module,
+.summary.module {
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.blurb h4.heading a {
+  word-break: break-word;
+}
+
+.blurb h4.heading,
+.blurb .header .heading {
+  margin: 0;
+}
+
+.blurb ul.required-tags {
+  position: initial;
+  top: initial;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+
+.blurb ul.required-tags li + li + li,
+.blurb ul.required-tags li + li + li + li {
+  position: initial;
+  left: initial;
+}
+
+.blurb ul.required-tags li {
+  display: inline-flex;
+}
+
+.bookmark p.status {
+  position: relative;
+  right: initial;
+  z-index: initial;
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.bookmark .status span,
+.bookmark .status a {
+  display: inline-block;
+}
+
+.bookmark span.count {
+  line-height: initial;
+  position: initial;
+  top: initial;
+  left: initial;
+  text-align: center;
+}
+
+.bookmark .status a:focus {
+  overflow: initial;
+}
+
+.bookmark .status .count {
+  background: none;
+}
+
+.blurb .header h5.fandoms {
+  margin: 0px;
+}
+
+.blurb .header p.notice,
+.blurb ul.series {
+  margin: 10px 0;
+}
+
+.blurb .tags li {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.blurb .header .heading {
+  margin: 0.375em 0.375em;
+  overflow-wrap: break-word;
+}
+
+.blurb .datetime {
+  position: initial;
+  text-align: center;
+  margin-top: 5px;
+}
+
+a.tag {
+  word-break: break-word;
+}
+
+.user h2.heading,
+.admin h2.heading,
+.collection h2.heading {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.userstuff,
+.userstuff p,
+blockquote.userstuff,
+.userstuff p span {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+#dashboard.own {
+  flex-direction: row;
+  flex-wrap: wrap;
+  ul {
+    flex-direction: row;
+  }
+}

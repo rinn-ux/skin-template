@@ -385,7 +385,20 @@ fieldset.listbox {
   #main.works-show.region,
   #main.chapters-show.region {
     padding-top: 1em;
+    padding-inline: 4rem;
     background: $mantle;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+
+    .wrapper {
+      width: 100%;
+      padding: 0.75rem;
+      box-sizing: border-box;
+    }
   }
 }
 
@@ -446,6 +459,11 @@ span.unread,
   background: transparent;
 }
 
+#main .work {
+  max-width: 100%;
+  min-width: 0;
+}
+
 /* sets base colours for oodles of elements */
 .group,
 .group .group,
@@ -487,7 +505,7 @@ div.dynamic,
 /* small blue pop for expandables — e.g., download on works */
 ul.expandable.secondary {
   border: 0;
-  background: $rosewater;
+  background: $surface2;
 }
 
 /* nix border on toggle forms like bookmarks */
@@ -975,6 +993,7 @@ fieldset.listbox .heading,
 #workskin {
   padding: 0;
   margin: 0;
+  max-width: fit-content;
 }
 
 .work.meta.group {
@@ -1713,6 +1732,12 @@ form dd.required,
   margin: 1.75em;
   padding-block: 0.25em;
   padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 #main.dashboard {

@@ -1,4 +1,120 @@
-@charset "UTF-8";
+@use "sass:string";
+@use "sass:color";
+@use "sass:map";
+
+$rosewater: #dc8a78;
+$flamingo: #dd7878;
+$pink: #ea76cb;
+$mauve: #8839ef;
+$red: #d20f39;
+$maroon: #e64553;
+$peach: #fe640b;
+$yellow: #df8e1d;
+$green: #40a02b;
+$teal: #179299;
+$sky: #04a5e5;
+$sapphire: #209fb5;
+$blue: #1e66f5;
+$lavender: #7287fd;
+$text: #4c4f69;
+$subtext1: #5c5f77;
+$subtext0: #6c6f85;
+$overlay2: #7c7f93;
+$overlay1: #8c8fa1;
+$overlay0: #9ca0b0;
+$surface2: #acb0be;
+$surface1: #bcc0cc;
+$surface0: #ccd0da;
+$base: #eff1f5;
+$mantle: #e6e9ef;
+$crust: #dce0e8;
+
+$mocha: (
+  $rosewater: #f5e0dc,
+  $flamingo: #f2cdcd,
+  $pink: #f5c2e7,
+  $mauve: #cba6f7,
+  $red: #f38ba8,
+  $maroon: #eba0ac,
+  $peach: #fab387,
+  $yellow: #f9e2af,
+  $green: #a6e3a1,
+  $teal: #94e2d5,
+  $sky: #89dceb,
+  $sapphire: #74c7ec,
+  $blue: #89b4fa,
+  $lavender: #b4befe,
+  $text: #cdd6f4,
+  $subtext1: #bac2de,
+  $subtext0: #a6adc8,
+  $overlay2: #9399b2,
+  $overlay1: #7f849c,
+  $overlay0: #6c7086,
+  $surface2: #585b70,
+  $surface1: #45475a,
+  $surface0: #313244,
+  $base: #1e1e2e,
+  $crust: #181825,
+  $mantle: #11111b,
+);
+$frappe: (
+  "rosewater": #f2d5cf,
+  "flamingo": #eebebe,
+  "pink": #f4b8e4,
+  "mauve": #ca9ee6,
+  "red": #e78284,
+  "maroon": #ea999c,
+  "peach": #ef9f76,
+  "yellow": #e5c890,
+  "green": #a6d189,
+  "teal": #81c8be,
+  "sky": #99d1db,
+  "sapphire": #85c1dc,
+  "blue": #8caaee,
+  "lavender": #babbf1,
+  "text": #c6d0f5,
+  "subtext1": #b5bfe2,
+  "subtext0": #a5adce,
+  "overlay2": #949cbb,
+  "overlay1": #838ba7,
+  "overlay0": #737994,
+  "surface2": #626880,
+  "surface1": #51576d,
+  "surface0": #414559,
+  "base": #303446,
+  "mantle": #292c3c,
+  "crust": #232634,
+);
+
+$macchiato: (
+  "rosewater": #f4dbd6,
+  "flamingo": #f0c6c6,
+  "pink": #f5bde6,
+  "mauve": #c6a0f6,
+  "red": #ed8796,
+  "maroon": #ee99a0,
+  "peach": #f5a97f,
+  "yellow": #eed49f,
+  "green": #a6da95,
+  "teal": #8bd5ca,
+  "sky": #91d7e3,
+  "sapphire": #7dc4e4,
+  "blue": #8aadf4,
+  "lavender": #b7bdf8,
+  "text": #cad3f5,
+  "subtext1": #b8c0e0,
+  "subtext0": #a5adcb,
+  "overlay2": #939ab7,
+  "overlay1": #8087a2,
+  "overlay0": #6e738d,
+  "surface2": #5b6078,
+  "surface1": #494d64,
+  "surface0": #363a4f,
+  "base": #24273a,
+  "mantle": #1e2030,
+  "crust": #181926,
+);
+
 /*
   ---+ REVERSI PLUS PLUS +---
 
@@ -50,9 +166,11 @@
   14. other pages
   15. sort & filter sidebar
   16. misc
-
+  
 */
+
 /* ---+ 00. COLOUR GUIDE +--- */
+
 /* using this as a colour guide as ao3 does not allow variables
 :root {
 	--ao3-accent-color: $yellow;
@@ -73,15 +191,20 @@
 	--textbox-background-color: $mantle;
 }
 */
+
 /* ---+ 01. BODY FONTS +--- */
+
 /* body fonts
    grab whichever strikes your fancy insert it after font-family!
    fonts:	"IBM Plex Sans", "Noto Sans", "Source Sans 3", "Proxima Nova", "Helvetica Neue",
    ao3 defaults:	"Lucida Grande", "Lucida Sans Unicode", "GNU Unifont", Verdana, Helvetica, sans-serif;
 */
+
 body {
   /* font choices go here ↓ */
-  font-family: "IBM Plex Sans", "Proxima Nova", "Helvetica Neue", "Lucida Grande", "Lucida Sans Unicode", "GNU Unifont", Verdana, Helvetica, sans-serif;
+  font-family: "IBM Plex Sans", "Proxima Nova", "Helvetica Neue",
+    "Lucida Grande", "Lucida Sans Unicode", "GNU Unifont", Verdana, Helvetica,
+    sans-serif;
 }
 
 input,
@@ -93,7 +216,9 @@ blockquote.userstuff,
 .expander,
 .toggled form {
   /* font choices go here ↓ */
-  font-family: "IBM Plex Sans", "Proxima Nova", "Helvetica Neue", "Lucida Grande", "Lucida Sans Unicode", "GNU Unifont", Verdana, Helvetica, sans-serif;
+  font-family: "IBM Plex Sans", "Proxima Nova", "Helvetica Neue",
+    "Lucida Grande", "Lucida Sans Unicode", "GNU Unifont", Verdana, Helvetica,
+    sans-serif;
 }
 
 /* header fonts
@@ -120,11 +245,13 @@ var,
 pre,
 samp {
   /* font choices go here ↓ */
-  font-family: "Fira Code", "Source Code Pro", "Menlo", "Monaco", "Consolas", Courier, monospace;
+  font-family: "Fira Code", "Source Code Pro", "Menlo", "Monaco", "Consolas",
+    Courier, monospace;
   font-size: 0.9em;
 }
 
 /* ---+ 02. BASE +--- */
+
 /* banishes every box shadow, text shadow, and outline like the demons they are */
 * {
   box-shadow: none !important;
@@ -133,14 +260,14 @@ samp {
 }
 
 body {
-  background: #1e1e2e;
-  border-color: #78777d;
-  color: #eee;
+  background: $base;
+  border-color: $overlay2;
+  color: $text;
 }
 
 a,
 a:link {
-  color: #cdd6f4;
+  color: $text;
   text-decoration: none;
 }
 
@@ -155,7 +282,7 @@ div.preface .byline a:visited:hover,
 .blurb h4 a:link:hover,
 .blurb h4 a:visited:hover,
 .listbox .heading a:visited:hover {
-  color: rgb(191.25, 199.75, 254.15);
+  color: color.scale($lavender, $lightness: 15%);
 }
 
 /* darker grey for visited links */
@@ -164,7 +291,7 @@ div.preface .byline a:visited,
 span.series .divider,
 .blurb h4 a:visited,
 .listbox .heading a:visited {
-  color: #b4befe;
+  color: $lavender;
 }
 
 /* icons are sharp no more */
@@ -230,11 +357,11 @@ a.work,
 .blurb h4 img,
 .delete a,
 .splash .browse li a:before {
-  color: #eed49f;
+  color: $rosewater;
 }
 
 .delete a:hover {
-  color: #e5c890;
+  color: $rosewater;
 }
 
 /* makes HR dividers the same colour as text + extra margin space */
@@ -242,61 +369,54 @@ hr,
 .userstuff hr {
   border: 0;
   border-bottom: 2px solid;
-  color: #cdd6f4;
+  color: $text;
   margin: 1.5em auto;
 }
 
 /* 
 fieldset.listbox {
-
+	
 }*/
+
 #inner.wrapper {
   display: flex;
   margin: 0;
   padding: 0;
-}
-#inner.wrapper #main.works-show.region,
-#inner.wrapper #main.chapters-show.region {
-  padding-top: 1em;
-  padding-inline: 4rem;
-  background: #11111b;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  overflow-wrap: break-word;
-  box-sizing: border-box;
-}
-#inner.wrapper #main.works-show.region .wrapper,
-#inner.wrapper #main.chapters-show.region .wrapper {
-  width: 100%;
-  padding: 0.75rem;
-  box-sizing: border-box;
+  #main.works-show.region,
+  #main.chapters-show.region {
+    padding-top: 1em;
+    background: $mantle;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
 }
 
 /* rounds and pretties text boxes */
 input,
 textarea {
-  background: #11111b;
-  border-color: #45475a;
+  background: $mantle;
+  border-color: $surface1;
   border-radius: 0.25em;
-  color: #cdd6f4;
+  color: $text;
 }
 
 /* blue border now appears when you're focused a text box */
 input:focus,
 textarea:focus,
 form blockquote.userstuff,
-form.search input:focus[type=text] {
-  background: #11111b;
-  border-color: #89b4fa;
+form.search input:focus[type="text"] {
+  background: $mantle;
+  border-color: $blue;
 }
 
 /* white border on text box hover */
 input:hover,
-form.search input:hover[type=text] {
-  background: #11111b;
-  border-color: #cdd6f4;
+form.search input:hover[type="text"] {
+  background: $mantle;
+  border-color: $text;
 }
 
 th,
@@ -304,13 +424,13 @@ th,
 .thread .even,
 .system .tweet_list li,
 .ui-datepicker tr:hover {
-  background: #11111b;
+  background: $mantle;
 }
 
 .heading,
 .group .heading {
   background: none;
-  color: #cdd6f4;
+  color: $text;
 }
 
 /* makes lots of things the ao3 blue accent */
@@ -323,17 +443,12 @@ span.unread,
 .replied,
 .required,
 .blurb h4 img {
-  color: #b4befe;
+  color: $lavender;
 }
 
 /* some labels are misbehaving (namely edit skin: parent skins) so trying this */
 #main .verbose legend {
   background: transparent;
-}
-
-#main .work {
-  max-width: 100%;
-  min-width: 0;
 }
 
 /* sets base colours for oodles of elements */
@@ -357,9 +472,9 @@ div.dynamic,
 .dynamic form,
 #ui-datepicker-div,
 .ui-datepicker table {
-  background: #1e1e2e;
-  border-color: #585b70;
-  color: #cdd6f4;
+  background: $base;
+  border-color: $surface2;
+  color: $text;
 }
 
 .picture .header {
@@ -377,12 +492,12 @@ div.dynamic,
 /* small blue pop for expandables — e.g., download on works */
 ul.expandable.secondary {
   border: 0;
-  background: #585b70;
+  background: $rosewater;
 }
 
 /* nix border on toggle forms like bookmarks */
 .toggled form {
-  background: #1e1e2e;
+  background: $base;
   border: 0;
 }
 
@@ -395,13 +510,14 @@ form dl {
 }
 
 /* ---+ 03. ACTIONS +--- */
+
 legend .action:link {
   margin: 0 0.5em;
 }
 
 /* action buttons and some nav buttons */
 button,
-input[type=submit],
+input[type="submit"],
 .action,
 .action:link,
 .actions a,
@@ -410,15 +526,15 @@ input[type=submit],
 .actions label,
 .current,
 .flash.notice .action {
-  background: #313244;
+  background: $surface0;
   border-color: transparent; /* nix lines while keeping white space */
-  color: #cdd6f4;
+  color: $text;
 }
 
 /* active button behaviours (mostly) */
 #outer .current,
 legend .action:link:active,
-input:active[type=submit],
+input:active[type="submit"],
 a.current,
 label.action:active,
 span.unread,
@@ -437,14 +553,14 @@ span.claimed,
 .unwrangled,
 .unreviewed,
 .ui-sortable li:hover {
-  background: #181825;
+  background: $crust;
   border-color: transparent;
-  color: #cdd6f4;
+  color: $text;
 }
 
 /* button/actions hover */
 legend .action:link:hover,
-input:hover[type=submit],
+input:hover[type="submit"],
 label.action:hover,
 input.button:hover,
 .action:hover,
@@ -461,9 +577,9 @@ input.button:hover,
 .flash.notice .action:visited:hover,
 .work.index.group .actions li a:hover,
 .work.index.group .actions li a:visited:hover {
-  background: #45475a;
+  background: $surface1;
   border-color: transparent;
-  color: #cdd6f4;
+  color: $text;
 }
 
 /* button/actions visited */
@@ -472,7 +588,7 @@ input.button:hover,
 .action a:visited,
 .blurb h4 a:visited,
 .listbox .heading a:visited {
-  color: #585b70;
+  color: $surface2;
 }
 
 dl.meta {
@@ -496,11 +612,12 @@ dd.actions {
 }
 
 /* ---+ 04. HEADER +--- */
+
 /* dark header bg at the top */
 #header {
-  background: #11111b !important;
+  background: $mantle !important;
   margin: 0;
-  color: #cdd6f4;
+  color: $text;
   font-size: 0.875em;
   position: relative;
 }
@@ -524,47 +641,50 @@ dd.actions {
 #header .primary .dropdown:hover a,
 #header .user a:focus,
 .filters dt a:hover {
-  color: #cdd6f4;
+  color: $text;
 }
 
 #header .actions a:hover,
 #header .actions a:focus,
 #header .dropdown:hover a,
 #header .open a {
-  background: #bac2de;
+  background: $subtext1;
 }
 
 /* header nav buttons as blue: fandoms/browse/search/about */
-#header .actions a {
-  background: transparent;
-  border-color: transparent;
-  color: #cdd6f4;
-}
-#header #greeting .actions a {
-  color: #cdd6f4;
+#header {
+  .actions a {
+    background: transparent;
+    border-color: transparent;
+    color: $text;
+  }
+
+  #greeting .actions a {
+    color: $text;
+  }
 }
 
 #header .actions a:active,
 #header .actions a:focus {
   background: transparent;
-  color: #cdd6f4;
+  color: $text;
 }
 
 /* header dropdown menu bgs */
 #header .actions a:hover,
 #header .dropdown:hover a,
-#header .dropdown a:focus,
+#header /*.primary*/ .dropdown a:focus,
 #header .user .open a:focus {
-  background: #585b70;
-  color: #cdd6f4;
+  background: $surface2;
+  color: $text;
 }
 
 /* dropdowns are hover colour */
 #header .dropdown .menu a,
 #greeting .dropdown .menu a {
-  background: #585b70;
-  border-color: #585b70;
-  color: #cdd6f4;
+  background: $surface2;
+  border-color: $surface2;
+  color: $text;
   display: block;
   padding: 0.75em 0.5em 0.75em 0.5em;
 }
@@ -572,8 +692,8 @@ dd.actions {
 /* dropdown menu links with dark hover */
 #header .dropdown .menu a:focus,
 #header .dropdown .menu a:hover {
-  background: #11111b;
-  color: #cdd6f4;
+  background: $mantle;
+  color: $text;
 }
 
 #header .dropdown .menu a:hover,
@@ -588,7 +708,7 @@ dd.actions {
 }
 
 #header .heading a {
-  color: #cdd6f4;
+  color: $text;
   font-size: 1.714em;
   line-height: 1.75;
 }
@@ -605,7 +725,7 @@ dd.actions {
 
 /* "archiveofourown beta" lighter text pop on active */
 #header .heading a:active {
-  color: #e5c890;
+  color: $rosewater;
 }
 
 #header .landmark {
@@ -615,8 +735,8 @@ dd.actions {
 }
 
 #header .primary {
-  background: #313244;
-  color: #1e1e2e;
+  background: $surface0;
+  color: $base;
   padding: 0;
   width: 100%;
 }
@@ -635,7 +755,7 @@ dd.actions {
 #header .heading a:hover,
 #header .heading a:hover:visited,
 #tos_prompt .heading {
-  color: #f5e0dc;
+  color: $rosewater;
 }
 
 /* stay square, nav buttons */
@@ -656,7 +776,7 @@ dd.actions {
 
 #header .open a,
 #small_login {
-  background: #11111b;
+  background: $mantle;
 }
 
 /* user/post/login not blue */
@@ -675,13 +795,14 @@ fieldset.listbox .heading,
 .userstuff .heading,
 .userstuff h2 {
   background: none;
-  color: #cdd6f4;
+  color: $text;
 }
 
 /** SEARCH SECTION **/
+
 #header .search {
   float: right;
-  color: #cdd6f4;
+  color: $text;
   margin-right: 0.25em;
 }
 
@@ -703,20 +824,20 @@ fieldset.listbox .heading,
 /* header searchbar colours */
 #header #search .text,
 #header #search .text:active {
-  background: #1e1e2e;
+  background: $base;
 }
 
 /* header searchbar colours */
 #header #search input:focus,
 #header #search .text:focus,
 #header #search .text:hover {
-  background: #313244;
+  background: $surface0;
   border-color: transparent;
-  color: #cdd6f4;
+  color: $text;
 }
 
 /* header searchbar remain round */
-#header form.search input[type=text] {
+#header form.search input[type="text"] {
   border-radius: 1em;
 }
 
@@ -764,7 +885,7 @@ fieldset.listbox .heading,
 #header h2 {
   border-top: 0;
   clear: both;
-  color: #cdd6f4;
+  color: $text;
   display: block;
   font-size: 1.714em;
   line-height: 1.5;
@@ -773,10 +894,11 @@ fieldset.listbox .heading,
 }
 
 /* ---+ 05. MAIN +--- */
+
 /* nix h3 and news underlines on main splash */
 .splash .module h3 {
   border: 0;
-  color: #f5e0dc;
+  color: $rosewater;
 }
 
 .splash .browse li a,
@@ -789,18 +911,18 @@ fieldset.listbox .heading,
 }
 
 .splash .favorite li a {
-  background: #313244;
+  background: $surface0;
   border: 1px solid transparent;
 }
 
 .splash .favorite li a:hover {
   background: #eee;
   border-color: #eee;
-  color: #313244;
+  color: $surface0;
 }
 
 .splash .favorite li a:visited {
-  color: #b4befe;
+  color: $lavender;
 }
 
 .splash .favorite li:nth-of-type(odd) a:focus,
@@ -808,7 +930,7 @@ fieldset.listbox .heading,
 .splash .favorite li:nth-of-type(odd) a:visited:hover {
   background: #eee;
   border-color: #eee;
-  color: #313244;
+  color: $surface0;
 }
 
 /* nix news underlines on main splash */
@@ -822,8 +944,9 @@ fieldset.listbox .heading,
 }
 
 /* ---+ 06. FOOTER +--- */
+
 #outer #footer {
-  background: #11111b;
+  background: $mantle;
 }
 
 #outer .region,
@@ -840,22 +963,23 @@ fieldset.listbox .heading,
 #footer a:hover,
 #footer a:focus {
   background: transparent;
-  color: #f5e0dc;
+  color: $rosewater;
 }
 
 /* give the footer nav text a readable pillow */
 #footer ul.actions {
-  background-color: #1e1e2e;
+  background-color: $base;
 }
 
 /* ---+ 07. WORK READING ADJUSTMENTS +--- */
+
 /* WARNING:
    note: this change likely can (and will) royally screw up writers' work skins
 */
+
 #workskin {
   padding: 0;
   margin: 0;
-  max-width: fit-content;
 }
 
 .work.meta.group {
@@ -870,7 +994,8 @@ fieldset.listbox .heading,
 #chapters .userstuff ol,
 #chapters .userstuff ul {
   /* font choices go here ↓ */
-  font-family: "Charter", "IBM Plex Serif", "Palatino Linotype", "Palatino", "Literata", "Georgia", serif;
+  font-family: "Charter", "IBM Plex Serif", "Palatino Linotype", "Palatino",
+    "Literata", "Georgia", serif;
   font-size: 1.25em;
 }
 
@@ -915,7 +1040,7 @@ fieldset.listbox .heading,
 /* in work, boxes summary + author notes */
 .notes.module,
 .summary.module {
-  background: #1e1e2e;
+  background: $base;
   border-radius: 0.5em;
   font-size: 0.65rem;
   margin-top: 1rem !important;
@@ -1007,6 +1132,7 @@ div.afterword .children h3 {
 }
 
 /* ---+ 08. COMMENTS +--- */
+
 /* nix border outside the add comment box */
 #add_comnent,
 #add_comment div.comment,
@@ -1023,7 +1149,7 @@ fieldset fieldset,
 
 /* pretties up comments */
 li.comment {
-  background: #11111b !important;
+  background: $mantle !important;
   border: transparent;
   border-radius: 0.25em;
   margin: 1em 0;
@@ -1053,6 +1179,7 @@ li.comment {
 }
 
 /* ---+ 09. TAGS +--- */
+
 a.tag:hover {
   background: transparent;
 }
@@ -1062,7 +1189,7 @@ a.tag:hover {
 .series.blurb .commas a.tag,
 .work.blurb .commas a.tag,
 .work.meta .commas a.tag {
-  background: #313244;
+  background: $surface0;
   border: 1px solid transparent;
   border-radius: 0.75em;
   color: #eee;
@@ -1077,7 +1204,7 @@ a.tag:hover {
 
 /* specific to edit work tags page */
 .work.meta .autocomplete li.added.tag {
-  background: #313244;
+  background: $surface0;
   border: 1px solid transparent;
   border-radius: 0.75em;
   color: #eee;
@@ -1095,9 +1222,9 @@ a.tag:hover {
 .series.blurb .commas a.tag:hover,
 .work.blurb .commas a.tag:hover,
 .work.meta .commas a.tag:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* tag bubble visited colours */
@@ -1106,9 +1233,9 @@ a.tag:hover {
 .work.blurb .commas a.tag:visited,
 .work.meta .commas a.tag:visited,
 .work.meta .autocomplete li.added.tag:visited {
-  background: #313244;
-  border-color: #313244;
-  color: #a6adc8;
+  background: $surface0;
+  border-color: $surface0;
+  color: $subtext0;
 }
 
 /* tag bubble visited hover colours */
@@ -1116,9 +1243,9 @@ a.tag:hover {
 .series.blurb .commas a.tag:visited:hover,
 .work.blurb .commas a.tag:visited:hover,
 .work.meta .commas a.tag:visited:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* characters tag colours */
@@ -1127,9 +1254,9 @@ a.tag:hover {
 .work.blurb .commas li.characters a,
 .work.meta .character.tags .commas li a,
 .work.meta .character li.added.tag {
-  background: #a6e3a1;
-  border-color: #a6e3a1;
-  color: #1e1e2e;
+  background: $green;
+  border-color: $green;
+  color: $base;
 }
 
 /* characters tag hover colours */
@@ -1137,9 +1264,9 @@ a.tag:hover {
 .series.blurb .commas li.characters a:hover,
 .work.blurb .commas li.characters a:hover,
 .work.meta .character.tags .commas li a:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* characters tag visited colours */
@@ -1148,9 +1275,9 @@ a.tag:hover {
 .work.blurb .commas li.characters a:visited,
 .work.meta .character.tags .commas li a:visited,
 .work.meta .character li.added.tag:visited {
-  background: rgb(137.6950819672, 218.0950819672, 131.1049180328);
-  border-color: rgb(137.6950819672, 218.0950819672, 131.1049180328);
-  color: #1e1e2e;
+  background: color.scale($green, $lightness: -10%);
+  border-color: color.scale($green, $lightness: -10%);
+  color: $base;
 }
 
 /* character tag visited hover colours */
@@ -1158,9 +1285,9 @@ a.tag:hover {
 .series.blurb .commas li.characters a:visited:hover,
 .work.blurb .commas li.characters a:visited:hover,
 .work.meta .character.tags .commas li a:visited:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* relationships tag colours */
@@ -1169,9 +1296,9 @@ a.tag:hover {
 .work.blurb .commas li.relationships a,
 .work.meta .relationship.tags .commas li a,
 .work.meta .relationship li.added.tag {
-  background: #89b4fa;
-  border-color: #89b4fa;
-  color: #1e1e2e;
+  background: $blue;
+  border-color: $blue;
+  color: $base;
 }
 
 /* relationships tag hover colours */
@@ -1179,9 +1306,9 @@ a.tag:hover {
 .series.blurb .commas li.relationships a:hover,
 .work.blurb .commas li.relationships a:hover,
 .work.meta .relationship.tags .commas li a:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* relationships tag visited colours */
@@ -1190,9 +1317,9 @@ a.tag:hover {
 .work.blurb .commas li.relationships a:visited,
 .work.meta .relationship.tags .commas li a:visited,
 .work.meta .relationship li.added.tag:visited {
-  background: rgb(99.8731707317, 156.4024390244, 248.4268292683);
-  border-color: rgb(99.8731707317, 156.4024390244, 248.4268292683);
-  color: #1e1e2e;
+  background: color.scale($blue, $lightness: -10%);
+  border-color: color.scale($blue, $lightness: -10%);
+  color: $base;
 }
 
 /* relationship tag visited hover colours */
@@ -1200,9 +1327,9 @@ a.tag:hover {
 .series.blurb .commas li.relationships a:visited:hover,
 .work.blurb .commas li.relationships a:visited:hover,
 .work.meta .relationship.tags .commas li a:visited:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* warning tag colours */
@@ -1210,9 +1337,9 @@ a.tag:hover {
 .series.blurb .commas li.warnings a,
 .work.blurb .commas li.warnings a,
 .work.meta .warning.tags .commas li a {
-  background: #f38ba8;
-  border-color: #f38ba8;
-  color: #1e1e2e;
+  background: $red;
+  border-color: $red;
+  color: $base;
 }
 
 /* warning tag hover colours */
@@ -1220,9 +1347,9 @@ a.tag:hover {
 .series.blurb .commas li.warnings a:hover,
 .work.blurb .commas li.warnings a:hover,
 .work.meta .warning.tags .commas li a:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* warning tag visited colours */
@@ -1230,9 +1357,9 @@ a.tag:hover {
 .series.blurb .commas li.warnings a:visited,
 .work.blurb .commas li.warnings a:visited,
 .work.meta .warning.tags .commas li a:visited {
-  background: rgb(239.41875, 104.38125, 142.0359375);
-  border-color: rgb(239.41875, 104.38125, 142.0359375);
-  color: #1e1e2e;
+  background: color.scale($red, $lightness: -10%);
+  border-color: color.scale($red, $lightness: -10%);
+  color: $base;
 }
 
 /* warning tag visited hover colours */
@@ -1240,9 +1367,9 @@ a.tag:hover {
 .series.blurb .commas li.warnings a:visited:hover,
 .work.blurb .commas li.warnings a:visited:hover,
 .work.meta .warning.tags .commas li a:visited:hover {
-  background: #9399b2;
-  border-color: #9399b2;
-  color: #1e1e2e;
+  background: $overlay2;
+  border-color: $overlay2;
+  color: $base;
 }
 
 /* de-bubble rating/cat/fandom */
@@ -1264,23 +1391,24 @@ a.tag:hover {
 .work.meta .fandom.tags .commas a:visited:hover,
 .work.meta .rating.tags .commas a:hover,
 .work.meta .rating.tags .commas a:visited:hover {
-  border-bottom: 1px dotted #e5c890;
-  color: #1e1e2e;
+  border-bottom: 1px dotted $rosewater;
+  color: $base;
 }
 
 /* de-bubble fandom labels in work blurbs/work page */
 .work.meta .category.tags .commas a:visited,
 .work.meta .fandom.tags .commas a:visited,
 .work.meta .rating.tags .commas a:visited {
-  border-bottom: 1px dotted #a6adc8;
+  border-bottom: 1px dotted $subtext0;
   border-radius: 0;
-  color: #a6adc8;
+  color: $subtext0;
 }
 
 /* ---+ 10. WORK BLURB CLEANUP +--- */
+
 /* turn down the lights on work blurb bgs */
 #main li.blurb {
-  background: #11111b;
+  background: $mantle;
   border-color: transparent;
   border-radius: 0.25em;
   padding: 0.5em 1em;
@@ -1359,14 +1487,15 @@ ul.commas
 
 .commas.warnings li:last-child {
 	padding-right: .5em;
-
+	
 }
 
 ul.tags.commas li.characters:first-child {
 	padding-left: .25em;
 }
-
+ 
 */
+
 /* knock tag bubbles on work page back into alignment */
 .meta dd ul li {
   padding-right: 0.5em;
@@ -1379,14 +1508,14 @@ ul.tags.commas li.characters:first-child {
   border: 0;
   border-bottom: 1px dotted #fff;
   border-radius: revert;
-  color: #cdd6f4;
+  color: $text;
   display: inline;
   padding: revert;
 }
 
 /* de-bubble bookmarker hover tags */
 .bookmark.blurb .meta.tags.commas a.tag:hover {
-  color: #e5c890;
+  color: $rosewater;
 }
 
 /* de-bubble bookmark hover tags */
@@ -1414,8 +1543,9 @@ ul.tags.commas li.characters:first-child {
 }
 
 /* ---+ 11. MESSAGES & TOOLTIPS +--- */
+
 #modal {
-  background: #1e1e2e;
+  background: $base;
   border: 0;
   border-radius: 0.5em;
   color: #eee;
@@ -1444,7 +1574,7 @@ ul.tags.commas li.characters:first-child {
 #modal .footer a.action.modal-closer:active {
   background: #0b0b0b;
   border-color: transparent;
-  color: #cdd6f4;
+  color: $text;
 }
 
 #modal .footer a.action.modal-closer:hover,
@@ -1452,7 +1582,7 @@ ul.tags.commas li.characters:first-child {
 #modal .footer a.action.modal-closer:visited:hover {
   background: #4e4e5e;
   border-color: transparent;
-  color: #cdd6f4;
+  color: $text;
 }
 
 .error,
@@ -1465,49 +1595,49 @@ textarea.LV_invalid_field:hover,
 textarea.LV_invalid_field:active,
 .qtip-content,
 .system .intro {
-  background: #1e1e2e;
-  border-color: #f5e0dc;
-  color: #cdd6f4;
+  background: $base;
+  border-color: $rosewater;
+  color: $text;
 }
 
 .flash,
 .notice {
   background: transparent;
-  border-color: #f5e0dc;
-  color: #eee;
+  border-color: $rosewater;
+  color: $text;
   padding: 0.5em 0.375em;
 }
 
 #outer,
 .javascript,
 #tos_prompt,
-.announcement input[type=submit] {
-  background: #1e1e2e;
+.announcement input[type="submit"] {
+  background: $base;
 }
 
 form dd.required,
 .event.announcement .userstuff a,
 .filters .expander {
-  color: #eee;
+  color: $text;
 }
 
 .announcement .userstuff a,
 .announcement .userstuff a:link,
 .announcement .userstuff a:visited:hover {
-  color: #f5e0dc;
+  color: $rosewater;
 }
 
 .announcement .userstuff a:visited {
-  color: #b4befe;
+  color: $lavender;
 }
 
 .announcement .userstuff a:hover,
 .announcement .userstuff a:focus {
-  color: #5897d4;
+  color: $lavender;
 }
 
 .bookmark .status span {
-  border-color: #78777d;
+  border-color: $surface2;
 }
 
 /* nix white in tooltip dropdown bg */
@@ -1516,7 +1646,7 @@ form dd.required,
 }
 
 .mce-container input:focus {
-  background: #f3efec;
+  background: $surface0;
 }
 
 /* help buttons get weird in the sidebar so this is a shrink ray */
@@ -1525,11 +1655,11 @@ form dd.required,
 }
 
 /* search tooltip adjustments */
-.search [role=tooltip] {
-  background: #1e1e2e;
-  border: 1px solid #78777d;
+.search [role="tooltip"] {
+  background: $base;
+  border: 1px solid $overlay0;
   border-radius: 0.25em;
-  color: #eee;
+  color: $text;
   margin: 0.65em auto;
   padding: 0.25em 0.375em;
 }
@@ -1539,38 +1669,39 @@ form dd.required,
 .ui-datepicker td:hover,
 #tos_prompt .heading,
 #tos_prompt [disabled] {
-  background: #11111b;
+  background: $mantle;
 }
 
 /* ao3 blue accent on help (?) hover */
 .symbol .question,
 .qtip-content {
   background: transparent;
-  color: #f5e0dc;
+  color: $rosewater;
 }
 
 /* ---+ 12. DASHBOARD +--- */
+
 #dashboard,
 #dashboard.own {
-  border-color: #f5e0dc;
+  border-color: $rosewater;
 }
 
 #dashboard a,
 #dashboard span {
-  color: #cdd6f4;
+  color: $text;
 }
 
 #dashboard a:active,
 #dashboard .current {
-  background: #0b0b0b;
+  background: $mantle;
   border-color: transparent;
-  color: #cdd6f4;
+  color: $text;
 }
 
 #dashboard a:focus,
 #dashboard a:hover {
-  background: #4e4e5e;
-  color: #cdd6f4;
+  background: $crust;
+  color: $text;
 }
 
 /* nix dash button lines */
@@ -1580,19 +1711,13 @@ form dd.required,
 
 /* dark dashboard backdrop, smaller font size, more padding */
 #dashboard.own {
-  background: #181825;
+  background: $crust;
   border-top: 0em solid transparent;
   border-bottom: 0em solid transparent;
   font-size: 0.85em;
   margin: 1.75em;
   padding-block: 0.25em;
   padding-inline: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-#dashboard.own ul {
-  display: flex;
-  flex-direction: column;
 }
 
 #main.dashboard {
@@ -1600,16 +1725,17 @@ form dd.required,
 }
 
 /* ---+ 13. STATS PAGE +--- */
+
 /* smooth stats page borders, dark bg */
 .statistics .fandom.listbox.group {
   background: transparent;
-  border: #11111b;
+  border: $mantle;
   border-radius: 0.25em;
   margin: 1em 0;
 }
 
 .statistics .fandom ul.index.group {
-  background: #11111b !important;
+  background: $mantle !important;
   border-radius: inherit;
   padding: 0.15em 0.65em;
 }
@@ -1634,10 +1760,11 @@ form dd.required,
 
 /* even entries get a cool different colour */
 .statistics .index li:nth-of-type(even) {
-  background: #313244;
+  background: $surface0;
 }
 
 /* ---+ 14. OTHER PAGES +--- */
+
 /* grabbed from ao3 core */
 .listbox,
 fieldset fieldset.listbox {
@@ -1686,6 +1813,9 @@ fieldset fieldset.listbox {
   border-color: transparent;
 }
 
+// #user-fandom .fandom.listbox.group {
+// }
+
 /* banishes giant black bar on subs/related works pages */
 dl.index dd,
 dl.index dt {
@@ -1705,7 +1835,7 @@ dl.index dd {
 
 /* edit multiple works: darker bg */
 .listbox ul.index.concise {
-  background: #11111b;
+  background: $mantle;
   border-radius: inherit;
 }
 
@@ -1726,7 +1856,7 @@ dl.index dd {
 /* changed bookmark box colours; might tweak more */
 .bookmark div.user,
 .bookmark div.recent {
-  background-color: #11111b;
+  background-color: $mantle;
   border: 0;
 }
 
@@ -1748,7 +1878,7 @@ dl.index dd {
 /* ao3 blue accent on hover */
 .listbox .heading a.tag:visited:hover {
   background: transparent;
-  color: #e5c890;
+  color: $rosewater;
 }
 
 /* ALL the listbox bgs transparent?? i guess */
@@ -1783,6 +1913,7 @@ dl.index dd {
 }
 
 /* ---+ 15. SORT & FILTER SIDEBAR +--- */
+
 /* S&F margin adjustment */
 #bookmark-filters fieldset,
 #work-filters fieldset {
@@ -1873,7 +2004,7 @@ dt.search dd {
 .autocomplete .dropdown ul li:hover,
 .autocomplete .dropdown li.selected {
   background: transparent;
-  color: #f5e0dc;
+  color: $rosewater;
 }
 
 /* this is the part where the sort and filter arrow .gifs are taken out */
@@ -1884,12 +2015,12 @@ dt.search dd {
 
 /* and replaced! hi, meet right unicode arrow */
 .filters .expander::before {
-  content: "\23F5\0A0";
+  content: #{'"'} + string.unquote("\\") + 23F5 + string.unquote("\\") + 00A0 + #{'"'};
 }
 
 /* and left unicode arrow */
 .filters .expanded .expander::before {
-  content: "\23F7\0A0";
+  content: #{'"'} + string.unquote("\\") + 23F7 + string.unquote("\\") + 00A0 + #{'"'};
 }
 
 /* parent expander buttons are too far in, so they're scooching over a skosh */
@@ -1911,7 +2042,7 @@ form dl dt,
 }
 
 /* fix search bars in work search because they're. A Lot */
-form.search input[type=text] {
+form.search input[type="text"] {
   border-color: #78777d;
   border-radius: 0.25em;
 }
@@ -1932,7 +2063,7 @@ fieldset fieldset.listbox,
 
 /* trying to make some boxes behave */
 .group.listbox .index {
-  background: #11111b;
+  background: $mantle;
   border-radius: 0.25em;
 }
 
@@ -1942,62 +2073,66 @@ form.single fieldset {
 }
 
 /* ---+ 16. MISC +--- */
+
 /*
 ====================================================
 REPLACE THE AO3 DEFAULT ICONS AND IMAGES
 ====================================================
 */
+
 /* ======= NEW IMAGESET ======= */
+
 .required-tags .rating-notrated,
 .required-tags .rating-general-audience,
-.required-tags .rating-explicit,
-.required-tags .rating-mature,
-.required-tags .rating-teen,
-.required-tags .category-femslash,
-.required-tags .category-gen,
-.required-tags .category-slash,
+.required-tags .rating-explicit, 
+.required-tags .rating-mature, 
+.required-tags .rating-teen, 
+.required-tags .category-femslash, 
+.required-tags .category-gen, 
+.required-tags .category-slash, 
 .required-tags .category-none,
-.required-tags .category-het,
+.required-tags .category-het, 
 .required-tags .category-multi,
-.required-tags .category-other,
-.required-tags .complete-no,
-.required-tags .complete-yes,
-.required-tags .warning-yes,
-.required-tags .warning-no,
-.required-tags .warning-choosenotto,
-.required-tags .external-work,
-.status .private .text,
-.status .public,
-.status .hidden,
-.status .rec,
-.status .count,
-.index .skins .icon,
+.required-tags .category-other, 
+.required-tags .complete-no, 
+.required-tags .complete-yes, 
+.required-tags .warning-yes, 
+.required-tags .warning-no, 
+.required-tags .warning-choosenotto, 
+.required-tags .external-work, 
+.status .private .text, 
+.status .public, 
+.status .hidden, 
+.status .rec, 
+.status .count, 
+.index .skins .icon, 
 .index .mystery .icon,
 .index .tag .icon,
-.index .tagset .icon,
-.comment .icon .anonymous,
-.comment .icon .visitor,
-.abbreviated .icon .visitor,
-.abbreviated .icon .anonymous,
-.skins .primary .icon,
-.admin .primary .icon,
-.tagset .primary .icon,
+.index .tagset .icon, 
+.comment .icon .anonymous, 
+.comment .icon .visitor, 
+.abbreviated .icon .visitor, 
+.abbreviated .icon .anonymous, 
+.skins .primary .icon, 
+.admin .primary .icon, 
+.tagset .primary .icon, 
 .tag .primary .icon,
 a.rss span,
 p.kudos,
-#symbols-key dl img,
-#bookmark-symbols-key img,
-img[src$="/images/skins/iconsets/default/icon_user.png"],
-img[src$="/images/skins/iconsets/default/icon_collection.png"],
-img[src$="/images/lockblue.png"] {
+#symbols-key dl img, /* content symbols key */
+#bookmark-symbols-key img, /* bookmark symbols key */
+img[src$="/images/skins/iconsets/default/icon_user.png"], /* this is the default user icon */
+img[src$="/images/skins/iconsets/default/icon_collection.png"], /* this is default collection icon */
+img[src$="/images/lockblue.png"] /* this is the lock for restricted works (not originally part of the imageset) */ {
   background-image: url("https://images.squidge.org/images/2024/03/30/AO3_imageset_muted_dark.png"); /* link to the new imageset */
   background-size: 200px 835px; /* size of the new imageset needs to be the same as the original */
 }
 
 /*======= SYMBOLS KEYS =======*/
+
 /* sets the size of the icons for the symbols keys */
-#symbols-key dl img,
-#bookmark-symbols-key img {
+#symbols-key dl img, /* content symbols key */
+#bookmark-symbols-key img /* bookmark symbols key */ {
   width: 0 !important;
   height: 0 !important;
   padding: 25px 0 0 25px;
@@ -2082,6 +2217,7 @@ img[src$="/images/skins/iconsets/default/bookmark-hidden.png"] {
 }
 
 /* ======= DEFAULT ICONS + LOCK FOR RESTRICTED WORKS ======= */
+
 /* hides the "old" default icons and the "old" lock for restricted works */
 img[src$="/images/skins/iconsets/default/icon_user.png"],
 img[src$="/images/skins/iconsets/default/icon_collection.png"],
@@ -2136,6 +2272,7 @@ img[src$="/images/lockblue.png"] {
 
 /*======= AO3 LOGO IN HEADER =======*/
 /* just delete this part of the code if you don't want to replace the logo */
+
 /* this replaces the logo with a higher quality version */
 #header .logo {
   content: url("/images/logo.png");
@@ -2191,7 +2328,7 @@ dl.stats dd.comments::before {
 }
 
 dl.stats dd.bookmarks::before,
-dl.stats dd a[href$=bookmarks]::before {
+dl.stats dd a[href$="bookmarks"]::before {
   /*bookmarks*/
   background: url(https://64.media.tumblr.com/9b95d189a57699762d2262536e922ece/b2e751421a20aa0c-2a/s100x200/1aabb2ad7b90746f0469aefaa39af5b83728f8b9.png);
 }
@@ -2229,22 +2366,22 @@ dl.stats dd.status::before {
 }
 
 /*for the collections*/
-li.collection dl.stats dd a[href$=collections]::before {
+li.collection dl.stats dd a[href$="collections"]::before {
   /*collections and sub collections*/
   background: url(https://64.media.tumblr.com/ae825c2ad8071426c298c5b52970e294/b2e751421a20aa0c-18/s100x200/d1eb5dd259e2db588cda2100057c2c8fd9efaaf0.png);
 }
 
-li.collection dl.stats dd a[href$=works]::before {
+li.collection dl.stats dd a[href$="works"]::before {
   /*works*/
   background: url(https://64.media.tumblr.com/f835b437a474b4b672a8d4ebe61402b8/8979adde76f2ff05-fb/s100x200/8f86556b6896e96427f5a4a54f0de7be38ddba75.png);
 }
 
-li.collection dl.stats dd a[href$=bookmarks]::before {
+li.collection dl.stats dd a[href$="bookmarks"]::before {
   /*bookmarks*/
   background: url(https://64.media.tumblr.com/9b95d189a57699762d2262536e922ece/b2e751421a20aa0c-2a/s100x200/1aabb2ad7b90746f0469aefaa39af5b83728f8b9.png);
 }
 
-li.collection dl.stats dd a[href$=fandoms]::before {
+li.collection dl.stats dd a[href$="fandoms"]::before {
   /*fandoms*/
   background: url(https://64.media.tumblr.com/0a2f3d28fb850907a859726916e04e6f/8979adde76f2ff05-48/s250x400/926b1499363f66438d02fdc8bbea5ce610a75395.png);
 }
@@ -2258,13 +2395,25 @@ ul.statistics dl.stats dd::before,
 li.work dl.stats dd::before,
 li.bookmark dl.stats dd::before,
 dl.work dl.stats dd::before,
-.collection dl.stats dd a[href$=collections]::before,
-li.collection dl.stats dd a[href$=works]::before,
-li.collection dl.stats dd a[href$=bookmarks]::before,
-li.collection dl.stats dd a[href$=fandoms]::before,
-li.series dl.stats dd:not(.language):not(.words):not(.chapters):not(.collections):not(.comments):not(.kudos):not(.bookmarks):not(.hits):not(.published):not(.subscriptions):nth-of-type(1)::before,
-li:not(.collection) dl.stats dd:not(.language):not(.words):not(.chapters):not(.collections):not(.comments):not(.kudos):not(.bookmarks):not(.hits):not(.published):not(.subscriptions):nth-of-type(2)::before,
-dl.stats dd:not(.bookmarks) a[href$=bookmarks]::before {
+.collection dl.stats dd a[href$="collections"]::before,
+li.collection dl.stats dd a[href$="works"]::before,
+li.collection dl.stats dd a[href$="bookmarks"]::before,
+li.collection dl.stats dd a[href$="fandoms"]::before,
+li.series
+  dl.stats
+  dd:not(.language):not(.words):not(.chapters):not(.collections):not(
+    .comments
+  ):not(.kudos):not(.bookmarks):not(.hits):not(.published):not(
+    .subscriptions
+  ):nth-of-type(1)::before,
+li:not(.collection)
+  dl.stats
+  dd:not(.language):not(.words):not(.chapters):not(.collections):not(
+    .comments
+  ):not(.kudos):not(.bookmarks):not(.hits):not(.published):not(
+    .subscriptions
+  ):nth-of-type(2)::before,
+dl.stats dd:not(.bookmarks) a[href$="bookmarks"]::before {
   display: inline-block;
   width: 14px;
   height: 14px;
