@@ -1,17 +1,26 @@
 {
-  "name": "ao3-skins",
+  "name": "skin-template",
   "version": "1.0.0",
-  "description": "dev repo for ao3 skins",
+  "type": "module",
+  "description": "Template for AO3 skin repos",
   "main": "index.js",
   "scripts": {
-    "build": "sass src:../Ao3-dev/stylesheets/skins/user",
-    "compile": "sass src:build --no-source-map",
-    "watch": "sass --watch src:../Ao3-dev/stylesheets/skins/user"
+    "build": "sass src:build",
+    "dev": "node utility/setSkin.js && live-server ../dev-o3/public",
+    "clear": "node utility/setSkin.js -c",
+    "default": "node utility/setSkin.js -d && live-server ../dev-o3/public",
+    "test": "rimraf --glob ../dev-o3/public/stylesheets/skins/user && sass src:../dev-o3/public/stylesheets/skins/user",
+    "watch": "sass --watch src:../dev-o3/stylesheets/skins/user"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@catppuccin/palette": "^1.4.0",
     "sass": "^1.80.3"
+  },
+  "devDependencies": {
+    "commander": "^5.1.0",
+    "live-server": "^1.2.2",
+    "rimraf": "^6.0.1"
   }
 }
