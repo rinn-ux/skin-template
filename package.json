@@ -7,12 +7,11 @@
   "scripts": {
     "build": "sass src:build",
     "dev": "node utility/setSkin.js && live-server ../dev-o3/public",
-    "clear": "node utility/setSkin.js -c",
     "default": "node utility/setSkin.js -d && live-server ../dev-o3/public",
-    "test": "rimraf --glob ../dev-o3/public/stylesheets/skins/user && sass src:../dev-o3/public/stylesheets/skins/user",
-    "watch": "sass --watch src:../dev-o3/stylesheets/skins/user"
+    "clear": "node utility/setSkin.js -c",
+    "watch": "node utility/watch.js"
   },
-  "author": "",
+  "author": "Rhylen Nguyen",
   "license": "ISC",
   "dependencies": {
     "@catppuccin/palette": "^1.4.0",

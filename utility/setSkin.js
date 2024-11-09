@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import { program } from "commander";
+import env  from "../env.json" with {type: "json"};
 
 program
   .option("-d, --default", "Add default Ao3 stylesheets")
@@ -7,12 +8,11 @@ program
 program.parse(process.argv);
 
 const linkStylesheet = (path, options) =>
-  `    <link rel="stylesheet" href="/stylesheets/skins/user/${path.replace(
-    /\\/,
-    "/"
-  )}" ${options != undefined ? 'media="' + options + '"' : ""}/>\r\n`;
+  `    <link rel="stylesheet" href="/stylesheets/skins/user/${
+    env.THEME + path.replace(/\\/, "/")
+  }" ${options != undefined ? 'media="' + options + '"' : ""}/>\r\n`;
 let files = fs
-  .readdirSync("../dev-o3/public", { recursive: true })
+  .readdirSync(env.DEV_PATH, { recursive: true })
   .filter((p) => p.endsWith(".html"));
 
 let imports = "";
@@ -27,7 +27,7 @@ if (program.default) {
 }
 
 let styles = fs
-  .readdirSync("../dev-o3/public/stylesheets/skins/user/", {
+  .readdirSync(env.DEV_PATH + "stylesheets/skins/user/" + env.THEME, {
     recursive: true,
   })
   .filter((p) => p.endsWith(".css"));
@@ -43,7 +43,7 @@ styles.forEach((path) => {
 });
 
 files.forEach((file) => {
-  let data = fs.readFileSync("../dev-o3/public/" + file, {
+  let data = fs.readFileSync(env.DEV_PATH + file, {
     encoding: "utf8",
     flag: "r",
   });
@@ -60,7 +60,7 @@ files.forEach((file) => {
     data = data.replace(regex, imports);
   }
 
-  fs.writeFileSync("../dev-o3/public/" + file, data, {
+  fs.writeFileSync(env.DEV_PATH + file, data, {
     encoding: "utf8",
     flag: "w",
   });

@@ -1,9 +1,0 @@
-{
-  "port": 8181,
-  "host": "0.0.0.0",
-  "root": "../dev-o3/public",
-  "open": true,
-  "file": "index.html",
-  "wait": 1000,
-  "logLevel": 2
-}
