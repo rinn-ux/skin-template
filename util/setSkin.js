@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { program } from "commander";
-import env  from "../env.json" with {type: "json"};
+import env  from "../.env.json" with {type: "json"};
 
 program
   .option("-d, --default", "Add default Ao3 stylesheets")
