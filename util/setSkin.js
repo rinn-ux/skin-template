@@ -47,18 +47,17 @@ files.forEach((file) => {
     encoding: "utf8",
     flag: "r",
   });
+  
+  data =
+    data.split("<!-- SKIN STYLESHEETS -->")[0] +
+    "<!-- SKIN STYLESHEETS -->\r\n    <!-- END STYLESHEETS -->" +
+    data.split("<!-- END STYLESHEETS -->")[1];
 
-  if (program.clear) {
-    data =
-      data.split("<!-- SKIN STYLESHEETS -->")[0] +
-      "<!-- SKIN STYLESHEETS -->\r\n    <!-- END STYLESHEETS -->" +
-      data.split("<!-- END STYLESHEETS -->")[1];
-  } else {
-    const regex =
-      /(?<=    <!-- SKIN STYLESHEETS -->\r\n)((.*\r\n))*(?=    <!-- END STYLESHEETS -->)/gm;
+  const regex =
+    /(?<=    <!-- SKIN STYLESHEETS -->\r\n)((.*\r\n))*(?=    <!-- END STYLESHEETS -->)/gm;
 
-    data = data.replace(regex, imports);
-  }
+  data = data.replace(regex, imports);
+  
 
   fs.writeFileSync(env.DEV_PATH + file, data, {
     encoding: "utf8",
