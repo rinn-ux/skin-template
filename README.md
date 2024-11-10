@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/rinn-ux/skin-template">
-    <img src="https://github.com/rinn-ux/.github/blob/main/profile/header.png?raw=true)" alt="Logo" >
+    <img src="https://github.com/rinn-ux/.github/blob/main/profile/header-tp.png?raw=true)" alt="Logo" >
   </a>
 
   <h3 align="center">skin-template</h3>
