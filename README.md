@@ -8,7 +8,7 @@
     <img src="https://github.com/rinn-ux/.github/blob/main/profile/header-tp.png?raw=true)" alt="Logo" >
   </a>
 
-  <h3 align="center"><img src="./public/repo title.png" alt="skin-template"></h3>
+  <h3 align="center"><img width="375" src="/public/repo title.png" alt="skin-template"></h3>
 
   <p align="center">
     Template repo for AO3 skin projects
