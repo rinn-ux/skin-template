@@ -6,10 +6,10 @@
   "main": "index.js",
   "scripts": {
     "build": "sass src:build",
-    "dev": "node utility/setSkin.js && live-server ../dev-o3/public",
-    "default": "node utility/setSkin.js -d && live-server ../dev-o3/public",
-    "clear": "node utility/setSkin.js -c",
-    "watch": "node utility/watch.js"
+    "dev": "node util/setSkin.js && live-server ../dev-o3/public",
+    "default": "node util/setSkin.js -d && live-server ../dev-o3/public",
+    "clear": "node util/setSkin.js -c",
+    "watch": "node util/watch.js"
   },
   "author": "Rhylen Nguyen",
   "license": "ISC",
