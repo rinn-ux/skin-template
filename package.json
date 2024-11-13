@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "build": "sass src:build",
-    "dev": "node util/setSkin.js && live-server ../dev-o3/public",
-    "default": "node util/setSkin.js -d && live-server ../dev-o3/public",
+    "dev": "node util/dev.js",
+    "default": "node util/dev.js -d",
     "clear": "node util/setSkin.js -c",
     "watch": "node util/watch.js"
   },
